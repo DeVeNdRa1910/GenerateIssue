@@ -8,7 +8,12 @@ const app = express();
 const PORT = config.port;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin: config.frontend_url,
+  credentials: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization'
+}));
 
 app.use('/api', router)
 

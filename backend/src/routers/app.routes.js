@@ -17,7 +17,7 @@ const router = express.Router();
 router.post('/userCreate', upload.fields([{ name: "EmployeeImage", maxCount: 1 }]), UserCreate);
 router.post('/adminCreate', upload.fields([{ name: "AdminImage", maxCount: 1 }]), AdminCreate);
 router.post('/createIssue', upload.fields([{ name: "IssueImage", maxCount: 1}]), CreateIssue);
-router.get('/login', Login);
+router.post('/login', Login);
 router.get('/getAllUsersUnderAdmin', GetAdminUsers);
 router.get('/getEmployee', GetEmployee);
 router.get('/getIssueByAdmin', GetIssueByAdmin);

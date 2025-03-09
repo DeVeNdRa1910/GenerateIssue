@@ -10,6 +10,7 @@ const config = {
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     cloud_api_key: process.env.CLOUDINARY_API_KEY,
     cloud_api_secret: process.env.CLOUDINARY_API_SECRET,
+    frontend_url: process.env.FRONTEND_URL,
 }
 
 export default Object.freeze(config);
