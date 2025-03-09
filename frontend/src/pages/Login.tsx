@@ -8,17 +8,42 @@ import { Input } from '../components/ui/input';
 import {login} from '../http/api';
 import { toast } from "sonner"
 import { useMutation } from '@tanstack/react-query';
+import { useAppDispatch } from '../store/hooks';
+import { setAdmin } from '../store/adminSlice';
+import { setEmployee } from '../store/userSlice';
 
 
 function Login() {
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
+    const dispatch = useAppDispatch()
 
     const mutation = useMutation({
       mutationFn: login,
       onSuccess: (resp) => {
-        console.log("------------",resp)
+        console.log("------------",resp.userData)
+
+        if(resp?.userData?.adminId){
+          dispatch(setEmployee({
+            userId: resp?.userData?.id,
+            fname: resp?.userData?.fname,
+            lname: resp?.userData?.lname,
+            email: resp?.userData?.email,
+            adminId: resp?.userData?.adminId,
+            profileImage: resp?.userData?.image,
+          }))
+        }else{
+          dispatch(setAdmin({
+            adminId: resp?.userData?.id,
+            fname: resp?.userData?.fname,
+            lname: resp?.userData?.lname,
+            email: resp?.userData?.email,
+            profileImage: resp?.userData?.image, 
+            employeeIds: resp?.userData?.employeeIds ?? []
+          }))
+        }
+
         toast("Login", {
           description: "User logged in successfully",
           action: {

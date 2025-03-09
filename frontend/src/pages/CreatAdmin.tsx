@@ -218,7 +218,7 @@ import {
           <CardFooter>
             <div className="my-4 text-center text-sm">
               Already have an account?{" "}
-              <Link to={"/signup"} className="underline">
+              <Link to={"/login"} className="underline">
                 Login
               </Link>
             </div>
