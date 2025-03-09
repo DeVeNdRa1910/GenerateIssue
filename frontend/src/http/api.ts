@@ -31,3 +31,13 @@ export const createAdmin = async (data: FormData) => {
     });
     return resp.data;
 };
+
+export const createIssue = async (data: FormData) => {
+    const resp = await api.post("/api/createIssue", data, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    });
+    return resp.data;
+};
+

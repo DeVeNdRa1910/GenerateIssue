@@ -1,17 +1,19 @@
 import React from 'react'
-import { useAppSelector } from '../store/hooks'
+import Navbar from '../components/Navbar'
+import IssueComponent from '../components/IssueComponent'
 
 function Home() {
 
-  const user = useAppSelector(state => state.user)
-  const admin = useAppSelector(state => state.admin)
-
-  console.log(user)
-  console.log(admin)
-
   return (
-    <div>
-      <img src={admin?.profileImage} alt="" />
+    <div className='w-full absolute'>
+      <div className='fixed w-full'>
+        <Navbar />
+      </div>
+      <div className='mt-[9vh] mb-1.5 border-2 border-neutral-400 mx-2 rounded-2xl min-h-screen'>
+        <div className=''>
+          <IssueComponent />
+        </div>
+      </div>
     </div>
   )
 }

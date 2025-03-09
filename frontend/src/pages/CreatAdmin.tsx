@@ -12,8 +12,8 @@ import {
   import { Link, useNavigate } from "react-router-dom";
   import { useForm } from "react-hook-form";
   import { z } from "zod";
-  import { adminSchema } from "../lib/validators/adminSchema";
   import { zodResolver } from "@hookform/resolvers/zod";
+  import { adminSchema } from "../lib/validators/adminSchema";
   import { createAdmin } from "../http/api";
   import { useMutation } from "@tanstack/react-query";
   import { toast } from "sonner";
@@ -218,7 +218,7 @@ import {
           <CardFooter>
             <div className="my-4 text-center text-sm">
               Already have an account?{" "}
-              <Link to={"/login"} className="underline">
+              <Link to={"/signup"} className="underline">
                 Login
               </Link>
             </div>

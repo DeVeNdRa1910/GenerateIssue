@@ -22,7 +22,7 @@ function Login() {
     const mutation = useMutation({
       mutationFn: login,
       onSuccess: (resp) => {
-        console.log("------------",resp.userData)
+        // console.log("------------",resp.userData)
 
         if(resp?.userData?.adminId){
           dispatch(setEmployee({
@@ -43,6 +43,8 @@ function Login() {
             employeeIds: resp?.userData?.employeeIds ?? []
           }))
         }
+
+        localStorage.setItem('user', {...resp?.userData});
 
         toast("Login", {
           description: "User logged in successfully",
@@ -79,9 +81,9 @@ function Login() {
       }
 
       mutation.mutate({ email, password });
-      console.log(email)
+      // console.log(email)
 
-      console.log(mutation)
+      //console.log(mutation)
 
     };
 
