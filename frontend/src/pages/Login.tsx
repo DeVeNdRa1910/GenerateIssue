@@ -17,18 +17,18 @@ function Login() {
 
     const mutation = useMutation({
       mutationFn: login,
-      onSuccess: (resp: any) => {
+      onSuccess: (resp) => {
         console.log("------------",resp)
         toast("Login", {
           description: "User logged in successfully",
           action: {
             label: "X",
-            onClick: () => console.log("Undo"),
+            onClick: () => console.log("X"),
           },
         })
         navigate("/home");
       },
-      onError: (error: any) => {
+      onError: (error) => {
         toast("Login",{
           description: error.message,
           action: {
@@ -86,8 +86,8 @@ function Login() {
           </div>
         </CardContent>
         <CardFooter>
-          <Button onClick={handleLoginSubmit} className="w-full" disabled={mutation.isLoading} >
-            {mutation.isLoading && <LoaderCircle className="animate-spin size-10" /> }
+          <Button onClick={handleLoginSubmit} className="w-full" disabled={mutation.isPending} >
+            {mutation.isPending && <LoaderCircle className="animate-spin size-10" /> }
             <span className="">Login</span>
           </Button>
         </CardFooter>

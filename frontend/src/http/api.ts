@@ -13,3 +13,21 @@ export const login = async (data: { email: string; password: string }) => {
     const resp = await api.post("/api/login", data);
     return resp.data;
 };
+
+export const createUser = async (data: FormData) => {
+    const resp = await api.post("/api/userCreate", data, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    });
+    return resp.data;
+};
+
+export const createAdmin = async (data: FormData) => {
+    const resp = await api.post("/api/adminCreate", data, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    });
+    return resp.data;
+};
