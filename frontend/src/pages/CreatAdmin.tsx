@@ -26,6 +26,8 @@ import {
     FormMessage,
   } from "../components/ui/form";
   
+  //This page is for create Admin
+
   function CreateAdmin() {
     const form = useForm<z.infer<typeof adminSchema>>({
       resolver: zodResolver(adminSchema),
