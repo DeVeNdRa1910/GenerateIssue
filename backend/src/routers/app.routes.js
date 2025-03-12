@@ -11,6 +11,7 @@ import { GetEmployee } from '../controllers/Employee/getEmployee.Controller.js';
 import { DeleteEployee } from '../controllers/Employee/deleteEmployee.Controller.js';
 import { DeleteAdmin } from '../controllers/Admin/deleteAdmin.Controller.js';
 import { UpdateIssue } from '../controllers/Issue/updateIssue.Controller.js';
+import healthCheck from '../controllers/health.Controller.js' ;
 
 const router = express.Router();
 
@@ -24,5 +25,6 @@ router.get('/getIssueByAdmin', GetIssueByAdmin);
 router.delete('/deleteEmployee', DeleteEployee);
 router.delete('/deleteAdmin', DeleteAdmin);
 router.patch('/updateIssue', UpdateIssue);
+router.get('/health', healthCheck);
 
 export default router;
